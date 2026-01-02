@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Combined DOM Methods Program</title>
+
+<style>
+  body {
+    font-family: Arial, sans-serif;
+    padding: 20px;
+    background: #f2f2f2;
+  }
+  section {
+    background: white;
+    padding: 15px;
+    margin-bottom: 15px;
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  }
+  h2 {
+    color: purple;
+  }
+  .box {
+    padding: 10px;
+    margin: 5px 0;
+    background: #ddd;
+  }
+  button {
+    margin-top: 10px;
+    padding: 6px 12px;
+    cursor: pointer;
+  }
+</style>
+</head>
+
+<body>
+
+<h1>DOM Manipulation – Combined Program</h1>
+
+<!-- getElementById -->
+<section>
+<h2>1.getElementById</h2>
+<p id="myDiv" class="myid">Selected by ID</p>
+<button onclick="byId()">Change Text</button>
+</section>
+
+<!-- getElementsByClassName -->
+<section>
+<h2>2. getElementsByClassName</h2>
+<div class="box">Box 1</div>
+<div class="box">Box 2</div>
+<button onclick="byClass()">Change Box Colors</button>
+</section>
+
+<!-- getElementsByTagName -->
+<section>
+<h2>3. getElementsByTagName</h2>
+<p>Paragraph One</p>
+<p>Paragraph Two</p>
+<button onclick="byTag()">Style Paragraphs</button>
+</section>
+
+<!-- querySelector -->
+<section>
+<h2>4.querySelector</h2>
+<div class="firstBox box">First Box</div>
+<div class="firstBox box">Second Box</div>
+<button onclick="byQuerySelector()">Select First Box</button>
+</section>
+
+<!-- querySelectorAll -->
+<section>
+<h2>5.querySelectorAll</h2>
+<ul>
+  <li class="item">Apple</li>
+  <li class="item">Orange</li>
+  <li class="item">Banana</li>
+</ul>
+<button onclick="byQuerySelectorAll()">Style All Items</button>
+</section>
+
+<script>
+/*  getElementById */
+function byId() {
+  document.getElementById("myDiv").textContent =
+    "Text changed";
+}
+
+/*  getElementsByClassName */
+function byClass() {
+  const boxes = document.getElementsByClassName("box");
+  for (let i = 0; i < boxes.length; i++) {
+    boxes[i].style.backgroundColor = "purple";
+    boxes[i].style.color = "white";
+  }
+}
+
+/*  getElementsByTagName */
+function byTag() {
+  const paras = document.getElementsByTagName("p");
+  for (let i = 0; i < paras.length; i++) {
+    paras[i].style.fontWeight = "bold";
+    paras[i].style.color = "green";
+  }
+}
+
+/*  querySelector */
+function byQuerySelector() {
+  const first = document.querySelector(".firstBox");
+  first.style.border = "3px solid red";
+}
+
+/* querySelectorAll */
+function byQuerySelectorAll() {
+  const items = document.querySelectorAll(".item");
+  items.forEach(item => {
+    item.style.backgroundColor = "lightblue";
+    item.style.padding = "20px";
+  });
+}
+</script>
+
+</body>
+</html>

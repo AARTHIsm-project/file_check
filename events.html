@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Improved Mouse and Form Events</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      text-align: center;
+      padding: 40px;
+    }
+
+    #box {
+      width: 260px;
+      height: 130px;
+      background-color: skyblue;
+      margin: 20px auto;
+      line-height: 130px;
+      font-weight: bold;
+      border-radius: 10px;
+      transition: 0.3s;
+      cursor: pointer;
+    }
+
+    form {
+      background: white;
+      padding: 20px;
+      width: 320px;
+      margin: auto;
+      border-radius: 12px;
+      box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+    }
+
+    input, select {
+      width: 90%;
+      padding: 10px;
+      margin: 10px 0;
+      border-radius: 6px;
+      border: 1px solid #ccc;
+    }
+
+    button {
+      padding: 10px 18px;
+      margin: 5px;
+      border-radius: 6px;
+      border: none;
+      background: #ff7a5c;
+      color: white;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background: #ff5733;
+    }
+  </style>
+</head>
+
+<body>
+
+<h2>Mouse & Form Events – Improved Version</h2>
+
+<!-- Mouse Events -->
+<div id="box"
+     onclick="clickEvent()"
+     ondblclick="dblClickEvent()"
+     onmouseover="mouseOverEvent()"
+     onmouseout="mouseOutEvent()">
+  Hover / Click Me
+</div>
+
+<!-- Form Events -->
+<form onsubmit="return submitEvent()" onreset="resetEvent()">
+
+  <input type="text" placeholder="Enter your name" required
+         onfocus="focusEvent(this)"
+         onblur="blurEvent(this)"
+         oninput="inputEvent(this)">
+
+  <select onchange="changeEvent()" required>
+    <option value="">Select Course</option>
+    <option>HTML</option>
+    <option>CSS</option>
+    <option>JavaScript</option>
+  </select>
+
+  <br>
+  <button type="submit">Submit</button>
+  <button type="reset">Reset</button>
+
+</form>
+
+<script>
+  /* Mouse Events */
+  function mouseOverEvent() {
+    box.style.backgroundColor = "green";
+    box.innerText = "Mouse Over";
+  }
+
+  function mouseOutEvent() {
+    box.style.backgroundColor = "skyblue";
+    box.innerText = "Hover / Click Me";
+  }
+
+  function clickEvent() {
+    box.innerText = "Clicked!";
+    box.style.backgroundColor = "pink";
+  }
+
+  function dblClickEvent() {
+    box.innerText = "Double Clicked!";
+    box.style.backgroundColor = "red";
+  }
+
+  /* Form Events */
+  function focusEvent(element) {
+    element.style.backgroundColor = "blue";
+  }
+
+  function blurEvent(element) {
+    element.style.backgroundColor = "purple";
+  }
+
+  function inputEvent(element) {
+    console.log("Typingsss:", element.value);
+  }
+
+  function changeEvent() {
+    alert("Course changed");
+  }
+
+  function submitEvent() {
+    alert("Form Submitted Successfully");
+    return false; // prevents page refresh
+  }
+
+  function resetEvent() {
+    alert("Form Reset");
+  }
+</script>
+
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Registration Form – All Events</title>
+
+  <style>
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: linear-gradient(135deg, #667eea, #764ba2);
+      font-family: Arial, sans-serif;
+    }
+
+    .container {
+      width: 380px;
+      padding: 25px;
+      background: linear-gradient(to right, #ffecd2, #fcb69f);
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.3);
+      animation: slideIn 1s ease;
+    }
+
+    @keyframes slideIn {
+      from {
+        transform: translateY(50px);
+        opacity: 0;
+      }
+      to {
+        transform: translateY(0);
+        opacity: 1;
+      }
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    input, select, button {
+      width: 100%;
+      padding: 10px;
+      margin: 8px 0;
+      border-radius: 6px;
+      border: none;
+      outline: none;
+    }
+
+    button {
+      background: #667eea;
+      color: white;
+      cursor: pointer;
+      font-size: 16px;
+    }
+
+    button:hover {
+      background: #5a67d8;
+    }
+
+    #eventBox {
+      margin-top: 15px;
+      padding: 10px;
+      text-align: center;
+      background: #fff;
+      border-radius: 8px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container"
+     onclick="clickEvent()"
+     ondblclick="dblClickEvent()"
+     onmousedown="mouseDownEvent()"
+     onmouseup="mouseUpEvent()"
+     onmouseover="mouseOverEvent()"
+     onmouseout="mouseOutEvent()"
+     onmousemove="mouseMoveEvent()"
+     oncontextmenu="contextMenuEvent(event)">
+
+  <h2>Registration Form</h2>
+
+  <form onsubmit="submitEvent()" onreset="resetEvent()">
+
+    <input type="text" placeholder="Full Name"
+           onfocus="focusEvent(this)"
+           onblur="blurEvent(this)"
+           oninput="inputEvent()">
+
+    <input type="email" placeholder="Email"
+           onfocus="focusEvent(this)"
+           onblur="blurEvent(this)">
+
+    <select onchange="changeEvent()">
+      <option>Select Course</option>
+      <option>HTML</option>
+      <option>CSS</option>
+      <option>JavaScript</option>
+    </select>
+
+    <button type="submit">Submit</button>
+    <button type="reset">Reset</button>
+
+  </form>
+
+  <div id="eventBox">Event Status</div>
+</div>
+
+<script>
+  const box = document.getElementById("eventBox");
+
+  function clickEvent() {
+    box.innerText = "Click Event";
+  }
+
+  function dblClickEvent() {
+    box.innerText = "Double Click Event";
+  }
+
+  function mouseDownEvent() {
+    box.innerText = "Mouse Down Event";
+  }
+
+  function mouseUpEvent() {
+    box.innerText = "Mouse Up Event";
+  }
+
+  function mouseOverEvent() {
+    box.innerText = "Mouse Over Event";
+  }
+
+  function mouseOutEvent() {
+    box.innerText = "Mouse Out Event";
+  }
+
+  function mouseMoveEvent() {
+    box.innerText = "Mouse Move Event";
+  }
+
+  function contextMenuEvent(e) {
+    e.preventDefault();
+    box.innerText = "Right Click (Context Menu) Event";
+  }
+
+  function focusEvent(element) {
+    element.style.backgroundColor = "pink";
+  }
+
+  function blurEvent(element) {
+    element.style.backgroundColor = "white";
+  }
+
+  function inputEvent() {
+    box.innerText = "Input Event (Typing...)";
+  }
+
+  function changeEvent() {
+    box.innerText = "Change Event (Dropdown)";
+  }
+
+  function submitEvent() {
+    alert("Form Submitted");
+  }
+
+  function resetEvent() {
+    box.innerText = "Form Reset Event";
+  }
+</script>
+
+</body>
+</html>
